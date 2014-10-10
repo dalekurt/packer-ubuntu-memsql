@@ -13,8 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "private_network", ip: "192.168.2.100"
 
-  config.vm.synced_folder "packer/puppet", "/home/vagrant/.puppet", type: "nfs"
-  config.vm.synced_folder "packer/tmp", "/home/vagrant/tmp", type: "nfs"
-  config.vm.synced_folder "~/Sites/debs.dev", "/home/vagrant/www", type: "nfs"
+  config.vm.synced_folder "./packer/puppet", "/home/vagrant/.puppet", type: "rsync"
+  config.vm.synced_folder "./tmp", "/home/vagrant/tmp", type: "rsync"
+  config.vm.synced_folder "~/Sites/debs.dev", "/home/vagrant/www", type: "rsync"
   
 end
