@@ -33,14 +33,13 @@
     {
       "type": "puppet-masterless",
       "manifest_dir": "puppet/manifests",
-      "manifest_file": "puppet/manifests/init.pp",
+      "manifest_file": "puppet/manifests/site.pp",
       "module_paths": ["puppet/modules"],
       "facter" : {
         "fqdn" : "memsql.local"
-       },
-      "execute_command": "echo 'vagrant' | sudo -S -E /opt/ruby/bin/puppet apply --verbose --modulepath='${{.ModulePath}}' {{.ManifestFile}}"
+      },
+      "execute_command": "echo 'vagrant' | sudo -S -E /opt/ruby/bin/puppet apply --verbose --modulepath='{{.ModulePath}}' {{.ManifestFile}}"
     }
-
   ],
   "builders": [
     {
