@@ -1,5 +1,6 @@
 .vagrant/*
 *.box
-packer/output-virtualbox-iso/*
-packer/packer_cache/*
+packer/output-virtualbox-iso
+packer/packer_cache
+packer/puppet/var
 tmp/*
