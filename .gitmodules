@@ -2,3 +2,7 @@
 	path = packer/puppet
 	url = git@github.com:dalekurt/puppet-memsql.git
 	branch = develop
+[submodule "packer/puppet/modules/memsql"]
+	path = packer/puppet/modules/memsql
+	url = git@github.com:dalekurt/puppet-memsql.git
+	branch = develop
