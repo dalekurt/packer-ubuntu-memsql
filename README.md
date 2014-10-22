@@ -7,7 +7,7 @@ Deploy a memSQL server using Packer to VirtualBox, Amazon Web Services and Digit
 * [Packer](http://www.packer.io/)
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](http://www.vagrantup.com/)
-* [memSQL](http://www.memsql.com/)
+* Sign up for [memSQL](http://www.memsql.com/) license
 
 ## Getting Started
 
