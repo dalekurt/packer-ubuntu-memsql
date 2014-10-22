@@ -2,34 +2,19 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
       "scripts": [
-        "scripts/build_time.sh",
-        "scripts/apt.sh"
-      ]
-    },
-
-    {
-      "type": "shell",
-      "only": ["virtualbox-iso"],
-      "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
-      "scripts": [
-        "scripts/vbox.sh",
-        "scripts/vagrant.sh"
-      ]
-    },
-
-    {
-      "type": "shell",
-      "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
-      "scripts": [
+        "scripts/apt.sh",
         "scripts/sudo.sh",
+        "scripts/vagrant.sh",
         "scripts/ruby.sh",
-        "scripts/puppet.sh",
-        "scripts/cleanup.sh"
-      ]
+        "scripts/puppet.sh"
+      ],
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "echo 'vagrant' | sudo -S sh '{{ .Path }}'"
+        }
+      }
     },
-
     {
       "type": "puppet-masterless",
       "manifest_dir": "puppet/manifests",
@@ -84,13 +69,13 @@
     }
   ],
   "post-processors": [
-      {
-        "type": "vagrant",
-        "override": {
-          "virtualbox": {
-            "output": "memsql-ubuntu-14-04-x64-{{.Provider}}.box"
-          }
+    {
+      "type": "vagrant",
+      "override": {
+        "virtualbox": {
+          "output": "memsql-ubuntu-14-04-x64-{{.Provider}}.box"
         }
       }
-    ]
+    }
+  ]
 }
